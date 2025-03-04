@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\Mocktail Arduino WPF Prototype.csproj",
+      "projectUniqueName": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\Mocktail Arduino WPF Prototype.csproj",
       "projectName": "Mocktail Arduino WPF Prototype",
-      "projectPath": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\Mocktail Arduino WPF Prototype.csproj",
+      "projectPath": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\Mocktail Arduino WPF Prototype.csproj",
       "packagesPath": "C:\\Users\\marcu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\obj\\",
+      "outputPath": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

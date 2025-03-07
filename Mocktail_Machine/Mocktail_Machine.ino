@@ -43,8 +43,10 @@ class Mocktail {
     {"", {}, {}}
   };
 
+//Sætter strøm gennem pins
+
 void setup() {
-  pinMode(pin1, OUTPUT); //sætter pin 39 til at være output
+  pinMode(pin1, OUTPUT);
   pinMode(pin2, OUTPUT);
   pinMode(pin3, OUTPUT);
   pinMode(pin4, OUTPUT);

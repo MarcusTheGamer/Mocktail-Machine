@@ -1,3 +1,5 @@
+#include <Vector.h>
+
 #include <Time.h>
 #include <TimeLib.h>
 
@@ -17,31 +19,50 @@ int button2 = 13;
 
 enum Outputs
 {
-  Test1,
-  Test2,
-  Test3,
-  Test4,
-  Test5,
-  Test6,
-  Test7,
-  Test8,
+  Kokosmaelk,
+  Limejuice,
+  Danskvand,
+  Grenadine,
+  Appelsinjuice,
+  BlaaCuracao,
+  LemonSoda,
+  MangoSirup
 };
 
 class Mocktail {
   public:
     String Name;
-    List<Outputs> Ingredients;
-    List<int> Ratios;
+    static const int MAX_SIZE = 10;
+    Outputs Ingredients[MAX_SIZE];
+    int Ratios[MAX_SIZE];
+    int Size;
 
-    Mocktail(String name, List<Outputs> ingredients, List<int> ratios)
-      : Name(name), Ingredients(ingredients), Ratios(ratios) {}
+    Mocktail(String name, const Outputs ingredients[], const int ratios[], int size) 
+      : Name(name), Size(size) {
+
+      for (int i = 0; i < size; i++) {
+        Ingredients[i] = ingredients[i];
+        Ratios[i] = ratios[i];
+      }
+    }
 };
 
-  Mocktail mocktails[3] = {
-    {"", {}, {}},
-    {"", {}, {}},
-    {"", {}, {}}
-  };
+
+Outputs Ingredients1[] = { Kokosmaelk, Limejuice, Danskvand, Grenadine };
+int Ratios1[] = { 1, 2, 3, 4 };
+
+Outputs Ingredients2[] = { Limejuice, Danskvand };
+int Ratios2[] = { 2, 3 };
+
+Outputs Ingredients3[] = { Kokosmaelk, Grenadine };
+int Ratios3[] = { 1, 4 };
+
+Mocktail mocktails[3] = {
+    Mocktail("Tropical Breeze", Ingredients1, Ratios1, 4),
+    Mocktail("Citrus Fizz", Ingredients2, Ratios2, 2),
+    Mocktail("Sweet Sunset", Ingredients3, Ratios3, 2)
+};
+
 
 void setup() {
   pinMode(pin1, OUTPUT); //sætter pin 39 til at være output
@@ -65,9 +86,9 @@ void pour(int index, int time)
 
 void pourButton(int index)
 {
-  Mocktail mocktail = mocktails[i];
+  Mocktail mocktail = mocktails[index];
 
-  for (int i = 0; i < sizeof(mocktail.Ingredients) / sizeof(mocktails.Ingredients[0]); i++)
+  for (int i = 0; i < sizeof(mocktail.Ingredients) / sizeof(mocktail.Ingredients[0]); i++)
   {
     int index = 0;
     for (int j = 0; j < 8; j++)

@@ -1,18 +1,18 @@
 ﻿Mocktail Arduino WPF Prototype
-
+1.0.0.0
 
 winexe
 C#
 .cs
-G:\My Drive\Mocktail-Machine\Mocktail Arduino WPF Prototype\obj\Release\net8.0-windows\
+G:\My Drive\Mocktail-Machine\Mocktail Arduino WPF Prototype\obj\Debug\net8.0-windows\
 Mocktail_Arduino_WPF_Prototype
 none
 false
-TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 G:\My Drive\Mocktail-Machine\Mocktail Arduino WPF Prototype\App.xaml
 11407045341
 
-51280317363
+7-1046508646
 1981124507420
 MainWindow.xaml;
 

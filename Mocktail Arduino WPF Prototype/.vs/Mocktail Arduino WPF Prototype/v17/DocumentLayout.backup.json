@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\",
+  "WorkspaceRootPath": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|c:\\users\\marcu\\desktop\\mocktail arduino wpf prototype\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|c:\\users\\marcu\\desktop\\mocktail arduino wpf prototype\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|g:\\my drive\\mocktail-machine\\mocktail arduino wpf prototype\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|c:\\users\\marcu\\desktop\\mocktail arduino wpf prototype\\mocktail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|g:\\my drive\\mocktail-machine\\mocktail arduino wpf prototype\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|g:\\my drive\\mocktail-machine\\mocktail arduino wpf prototype\\mocktail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6534947D-0E5A-4A9F-9C20-84338C932082}|Mocktail Arduino WPF Prototype.csproj|solutionrelative:mocktail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -36,36 +36,34 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Mocktail.cs",
-              "DocumentMoniker": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\Mocktail.cs",
+              "DocumentMoniker": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\Mocktail.cs",
               "RelativeDocumentMoniker": "Mocktail.cs",
-              "ToolTip": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\Mocktail.cs",
+              "ToolTip": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\Mocktail.cs",
               "RelativeToolTip": "Mocktail.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T09:10:14.378Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-26T10:29:59.816Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T09:10:14.378Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-26T10:29:59.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\MainWindow.xaml.cs",
+              "DocumentMoniker": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\marcu\\Desktop\\Mocktail Arduino WPF Prototype\\MainWindow.xaml.cs",
+              "ToolTip": "G:\\My Drive\\Mocktail-Machine\\Mocktail Arduino WPF Prototype\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAADwv7kAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T07:24:06.836Z",
               "EditorCaption": ""

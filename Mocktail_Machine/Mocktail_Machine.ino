@@ -5,6 +5,8 @@
 
 #include <List.hpp>
 
+//Opsætning af pins for nemmere tilgåelse.
+
 int pin1 = 39;
 int pin2 = 41;
 int pin3 = 43;
@@ -63,9 +65,10 @@ Mocktail mocktails[3] = {
     Mocktail("Sweet Sunset", Ingredients3, Ratios3, 2)
 };
 
+//Sætter pins til at være output
 
 void setup() {
-  pinMode(pin1, OUTPUT); //sætter pin 39 til at være output
+  pinMode(pin1, OUTPUT);
   pinMode(pin2, OUTPUT);
   pinMode(pin3, OUTPUT);
   pinMode(pin4, OUTPUT);
@@ -83,6 +86,8 @@ void pour(int index, int time)
 {
   
 }
+
+//Maybe chance conflicting name index
 
 void pourButton(int index)
 {

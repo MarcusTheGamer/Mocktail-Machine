@@ -16,8 +16,9 @@ int pin6 = 49;
 int pin7 = 51;
 int pin8 = 53;
 
-int button1 = 12;
-int button2 = 13;
+int btn1 = 7;
+int btn2 = 2;
+int btn3 = 9;
 
 enum Outputs
 {
@@ -30,6 +31,10 @@ enum Outputs
   LemonSoda,
   MangoSirup
 };
+
+int flowspeed = 50;
+int cupAmount = 0;
+const int cupSize = 250;
 
 class Mocktail {
   public:
@@ -76,11 +81,11 @@ void setup() {
   pinMode(pin6, OUTPUT);
   pinMode(pin7, OUTPUT);
   pinMode(pin8, OUTPUT);
+
+  Serial.begin(9600);
 }
 
-int flowspeed = 50;
-int cupAmount = 0;
-const int cupSize = 250;
+
 
 void pour(int index, int time)
 {
@@ -110,32 +115,71 @@ void pourButton(int index)
   };
 }
 
-void loop() {
-  if (digitalRead(button1) == HIGH)
-  {
-    pourButton(0);
-  }
-  if (digitalRead(button2) == HIGH)
-  {
-    pourButton(1);
-  }
+int SelectIndex = 0;
 
-  /*
-  digitalWrite(pin1, HIGH);
-  delay(50);
-  digitalWrite(pin2, HIGH);
-  delay(50);
-  digitalWrite(pin3, HIGH);
-  delay(50);
-  digitalWrite(pin4, HIGH);
-  delay(50);
-  digitalWrite(pin1, LOW);
-  delay(50);
-  digitalWrite(pin2, LOW);
-  delay(50);
-  digitalWrite(pin3, LOW);
-  delay(50);
-  digitalWrite(pin4, LOW);
-  delay(50);
-  */
+void TestFucntionAlsoDeleteLater(int intiger){
+  switch(intiger){
+    case 0:
+      digitalWrite(pin1, HIGH);
+      break;
+    case 1:
+      digitalWrite(pin2, HIGH);
+      break;
+    case 2:
+      digitalWrite(pin3, HIGH);
+      break;
+    case 3:
+      digitalWrite(pin4, HIGH);
+      break;
+    case 4:
+      digitalWrite(pin5, HIGH);
+      break;
+    case 5:
+      digitalWrite(pin6, HIGH);
+      break;
+    case 6:
+      digitalWrite(pin7, HIGH);
+      break;
+    case 7:
+      digitalWrite(pin8, HIGH);
+      break;
+  }
+}
+
+int LastBtn1State = LOW;
+int LastBtn2State = LOW;
+int LastBtn3State = LOW;
+
+bool CompareBtnStates(int prev, int cur){
+  if (prev == LOW && cur == HIGH){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+void loop() {
+  int Btn1StateNow = digitalRead(btn1);
+  int Btn2StateNow = digitalRead(btn2);
+  int Btn3StateNow = digitalRead(btn3);
+  if (CompareBtnStates(LastBtn1State, Btn1StateNow) && SelectIndex < 7 )
+  {
+    SelectIndex++;
+    Serial.println("i'm pooping it");
+  }
+  else if (CompareBtnStates(LastBtn3State, Btn3StateNow) && SelectIndex > 0)
+  {
+    SelectIndex--;
+    Serial.println("pee pee poo poo 2: electric bogaloo");
+  }
+  //Serial.print(testThingDeleteLater);
+  if (CompareBtnStates(LastBtn2State, Btn2StateNow)){
+    //pourButton(testThingDeleteLater);
+    TestFucntionAlsoDeleteLater(SelectIndex);
+    Serial.println(SelectIndex);
+  }
+  LastBtn1State = digitalRead(btn1);
+  LastBtn2State = digitalRead(btn2);
+  LastBtn3State = digitalRead(btn3);
 }

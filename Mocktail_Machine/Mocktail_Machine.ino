@@ -16,6 +16,8 @@ int pin6 = 49;
 int pin7 = 51;
 int pin8 = 53;
 
+int pins[] = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8};
+
 int btn1 = 7;
 int btn2 = 2;
 int btn3 = 9;
@@ -116,34 +118,56 @@ void pourButton(int index)
 }
 
 int SelectIndex = 0;
+int CurrentModule = 0;
 
-void TestFucntionAlsoDeleteLater(int intiger){
-  switch(intiger){
+void TestFucntionAlsoDeleteLater(int i){
+    if (i >= 0 && i < 8) {
+    digitalWrite(CurrentModule, LOW);
+    digitalWrite(pins[i], HIGH);
+    CurrentModule = pins[i];
+  }
+  /*switch(i){
     case 0:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin1, HIGH);
+      CurrentModule = pin1;
       break;
     case 1:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin2, HIGH);
+      CurrentModule = pin2;
       break;
     case 2:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin3, HIGH);
+      CurrentModule = pin3;
       break;
     case 3:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin4, HIGH);
+      CurrentModule = pin4;
       break;
     case 4:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin5, HIGH);
+      CurrentModule = pin5;
       break;
     case 5:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin6, HIGH);
+      CurrentModule = pin6;
       break;
     case 6:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin7, HIGH);
+      CurrentModule = pin7;
       break;
     case 7:
+      digitalWrite(CurrentModule, LOW);
       digitalWrite(pin8, HIGH);
+      CurrentModule = pin8;
       break;
-  }
+  }*/
 }
 
 int LastBtn1State = LOW;

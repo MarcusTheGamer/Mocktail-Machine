@@ -190,12 +190,12 @@ void loop() {
   if (CompareBtnStates(LastBtn1State, Btn1StateNow) && SelectIndex < 7 )
   {
     SelectIndex++;
-    Serial.println("i'm pooping it");
+    Serial.println("↑");
   }
   else if (CompareBtnStates(LastBtn3State, Btn3StateNow) && SelectIndex > 0)
   {
     SelectIndex--;
-    Serial.println("pee pee poo poo 2: electric bogaloo");
+    Serial.println("↓");
   }
   //Serial.print(testThingDeleteLater);
   if (CompareBtnStates(LastBtn2State, Btn2StateNow)){

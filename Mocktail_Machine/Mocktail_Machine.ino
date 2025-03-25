@@ -1,9 +1,33 @@
+#include <LCDWIKI_SPI.h>
+#include <lcd_spi_registers.h>
+#include <mcu_spi_magic.h>
+
+#include <LCDWIKI_GUI.h>
+
 #include <Vector.h>
 
 #include <Time.h>
 #include <TimeLib.h>
 
 #include <List.hpp>
+#include <math.h>
+
+#define MODEL GC9A01
+#define CS   A1
+#define CD   A0
+#define RST  A2
+#define SDA  52
+#define SCK  50
+#define LED  48
+
+LCDWIKI_SPI mylcd(MODEL,CS,CD,-1,SDA,RST,SCK,LED);
+
+#define BLACK   0x0000
+#define WHITE   0xFFFF
+#define YELLOW  0xFF00
+#define BLUE    0x00FF
+#define SYNTHYELLOW 0xRRGG
+#define SYNTHPINK 0xF997
 
 //Opsætning af pins for nemmere tilgåelse.
 
@@ -67,10 +91,15 @@ Outputs Ingredients3[] = { Kokosmaelk, Grenadine };
 int Ratios3[] = { 1, 4 };
 
 Mocktail mocktails[3] = {
-    Mocktail("Tropical Breeze", Ingredients1, Ratios1, 4),
-    Mocktail("Citrus Fizz", Ingredients2, Ratios2, 2),
-    Mocktail("Sweet Sunset", Ingredients3, Ratios3, 2)
+  Mocktail("Tropical Breeze", Ingredients1, Ratios1, 4),
+  Mocktail("Citrus Fizz", Ingredients2, Ratios2, 2),
+  Mocktail("Sweet Sunset", Ingredients3, Ratios3, 2)
 };
+
+uint16_t rgbToHex(int red, int green, int blue)
+{
+  return ((int(red / 255 * 31) << 11) | (int(green / 255 * 63) << 5) | (int(blue / 255 * 31)));
+}
 
 //Sætter pins til at være output
 
@@ -83,6 +112,9 @@ void setup() {
   pinMode(pin6, OUTPUT);
   pinMode(pin7, OUTPUT);
   pinMode(pin8, OUTPUT);
+
+  mylcd.Init_LCD();
+  mylcd.Fill_Screen(BLACK);
 
   Serial.begin(9600);
 }
@@ -184,24 +216,36 @@ bool CompareBtnStates(int prev, int cur){
 }
 
 void loop() {
+  float top [3] = {255,248,117};
+  float bottom [3] = {255,89,191};
+  for (int y = 0; y < 240; y++)
+  {
+    float R = 255;
+    float G = round((248. - 89.) / 240. * y) + 89;
+    float B = round((117. - 191.) / 240. * y) + 191;
+    mylcd.Set_Draw_color(R,G,B);
+    mylcd.Draw_Line(0, y, 240, y);
+    mylcd.Fill_Rect(0,y,240,11);
+  };
+
   int Btn1StateNow = digitalRead(btn1);
   int Btn2StateNow = digitalRead(btn2);
   int Btn3StateNow = digitalRead(btn3);
   if (CompareBtnStates(LastBtn1State, Btn1StateNow) && SelectIndex < 7 )
   {
     SelectIndex++;
-    Serial.println("↑");
+    //Serial.println("↑");
   }
   else if (CompareBtnStates(LastBtn3State, Btn3StateNow) && SelectIndex > 0)
   {
     SelectIndex--;
-    Serial.println("↓");
+    //Serial.println("↓");
   }
   //Serial.print(testThingDeleteLater);
   if (CompareBtnStates(LastBtn2State, Btn2StateNow)){
     //pourButton(testThingDeleteLater);
     TestFucntionAlsoDeleteLater(SelectIndex);
-    Serial.println(SelectIndex);
+    //Serial.println(SelectIndex);
   }
   LastBtn1State = digitalRead(btn1);
   LastBtn2State = digitalRead(btn2);

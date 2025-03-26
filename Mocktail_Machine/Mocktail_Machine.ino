@@ -225,7 +225,7 @@ const uint8_t* const BlueHawaiian [73][29] PROGMEM = {
 
 int CoconutDreamTop [3] = {0,0,0};
 int CoconutDreamBottom [3] = {0,0,0};
-const uint8_t* const BlueHawaiian [73][29] PROGMEM = {
+const uint8_t* const CoconutDream [73][29] PROGMEM = {
 };
 
 int VirginHassTop [3] = {0,0,0};
@@ -290,7 +290,7 @@ void displayMocktail()
     {
       if (pgm_read_word_near(&OrangeCoconutCooler[y][x]) != 0xFFFF)
       {
-        mylcd.Fill_Rect(x*2 + 91,y*2 + 47,2,2,pgm_read_word_near(&OrangeCoconutCooler[y][x]));
+          mylcd.Fill_Rect(x*2 + 91,y*2 + 47,2,2,pgm_read_word_near(&OrangeCoconutCooler[y][x]));
       }
     }
   }

@@ -213,14 +213,19 @@ int BlueLagoonMocktailBottom [3] = {44,100,122};
 const uint8_t* const BlueLagoonMocktail [73][29] PROGMEM = {
 };
 
-int BlueLagoonMocktailTop [3] = {168,186,181};
-int BlueLagoonMocktailBottom [3] = {44,100,122};
+int OceanBreezeTop [3] = {168,186,181};
+int OceanBreezeBottom [3] = {44,100,122};
 const uint8_t* const OceanBreeze [73][29] PROGMEM = {
 };
 
-int TropicalBlueMocktailTop [3] = {0,0,0};
-int TropicalBlueMocktailBottom [3] = {0,0,0};
-const uint8_t* const TropicalBlueMocktail [73][29] PROGMEM = {
+int BlueHawaiianTop [3] = {164,196,183};
+int BlueHawaiianBottom [3] = {58,132,103};
+const uint8_t* const BlueHawaiian [73][29] PROGMEM = {
+};
+
+int CoconutDreamTop [3] = {0,0,0};
+int CoconutDreamBottom [3] = {0,0,0};
+const uint8_t* const BlueHawaiian [73][29] PROGMEM = {
 };
 
 int VirginHassTop [3] = {0,0,0};
@@ -283,9 +288,9 @@ void displayMocktail()
   {
     for (uint8_t x = 0; x < 29; x++)
     {
-      if (pgm_read_word_near(&SunriseMocktail[y][x]) != 0xFFFF)
+      if (pgm_read_word_near(&OrangeCoconutCooler[y][x]) != 0xFFFF)
       {
-        mylcd.Fill_Rect(x*2 + 91,y*2 + 47,2,2,pgm_read_word_near(&SunriseMocktail[y][x]));
+        mylcd.Fill_Rect(x*2 + 91,y*2 + 47,2,2,pgm_read_word_near(&OrangeCoconutCooler[y][x]));
       }
     }
   }
@@ -293,7 +298,22 @@ void displayMocktail()
 
 void displayBackground()
 {
+  //float top [3] = {255,248,117};
+  //float bottom [3] = {255,89,191};
+  int rgb [3];
+  for (int y = 0; y < 12; y++)
+  {
+    for (int i = 0; i < 3; i++)
+    {
+      //float bottomCur = bottom[i];
+      //float topCur = top[i];
 
+      rgb[i] = round((OrangeCoconutCoolerBottom[i] - OrangeCoconutCoolerTop[i]) / 240. * (y * 20.)) + OrangeCoconutCoolerTop[i];
+    }
+    
+    uint16_t RGB = ((rgb[0] & 0xF8) << 8) | ((rgb[1] & 0xFC) << 3) | (rgb[2] >> 3);
+    mylcd.Fill_Rect(0,y * 20,240,20,RGB);
+  };
 }
 
 void setup() {
@@ -310,22 +330,7 @@ void setup() {
   mylcd.Fill_Screen(BLACK);
   //Serial.begin(9600);
 
-  //float top [3] = {255,248,117};
-  //float bottom [3] = {255,89,191};
-  int rgb [3];
-  for (int y = 0; y < 12; y++)
-  {
-    for (int i = 0; i < 3; i++)
-    {
-      //float bottomCur = bottom[i];
-      //float topCur = top[i];
-
-      rgb[i] = round((bottom[i] - top[i]) / 240. * (y * 20.)) + top[i];
-    }
-    
-    uint16_t RGB = ((rgb[0] & 0xF8) << 8) | ((rgb[1] & 0xFC) << 3) | (rgb[2] >> 3);
-    mylcd.Fill_Rect(0,y * 20,240,20,RGB);
-  };
+  displayBackground();
   displayMocktail();
 }
 

@@ -788,9 +788,11 @@ void setup() {
 
 int SelectedIndex = 0;
 int CurrentModule = 0;
+bool IsPouring = false;
 
 void pour(int index)
 {
+  IsPouring = true;
   Mocktail mocktail = mocktails[index];
 
   for (int i = 0; i < sizeof(mocktail.Ingredients) / sizeof(mocktail.Ingredients[0]); i++)
@@ -811,6 +813,7 @@ void pour(int index)
 
   };
   digitalWrite(CurrentModule, LOW);
+  IsPouring = false;
 }
 
 // void enableRelay(int i){
@@ -835,13 +838,13 @@ void loop() {
   int NextBtnStateNow = digitalRead(NextBtn);
   int SelectBtnStateNow = digitalRead(SelectBtn);
   int PrevBtnStateNow = digitalRead(PrevBtn);
-  if (compareBtnStates(LastNextBtnState, NextBtnStateNow) && SelectedIndex < 8) SelectedIndex++;
-  else if (compareBtnStates(LastPrevBtnState, PrevBtnStateNow) && SelectedIndex > -1) SelectedIndex--;
+  if (compareBtnStates(LastNextBtnState, NextBtnStateNow) && SelectedIndex < 8 && !IsPouring) SelectedIndex++;
+  else if (compareBtnStates(LastPrevBtnState, PrevBtnStateNow) && SelectedIndex > -1 && !IsPouring) SelectedIndex--;
 
   if (SelectedIndex == 8) SelectedIndex = 0;
   else if (SelectedIndex == -1) SelectedIndex = 7;
 
-  if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow)){
+  if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
     pour(SelectedIndex);
     //enableRelay(SelectedIndex);
     //Serial.println(SelectIndex);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mocktail Arduino WPF Prototype")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77af9d33205c12c19bbe9fd60d985468a0653b6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e33e91d9c0871588d0d8c28589f72d28b7b71ab")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mocktail Arduino WPF Prototype")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mocktail Arduino WPF Prototype")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

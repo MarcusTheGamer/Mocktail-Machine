@@ -30,29 +30,29 @@ LCDWIKI_SPI mylcd(MODEL,CS,CD,-1,SDA,RST,SCK,LED);
 #define SYNTHYELLOW 0xRRGG
 #define SYNTHPINK 0xF997
 
-//Opsætning af pins for nemmere tilgåelse.
+//Opsætning af Modules for nemmere tilgåelse.
 
-int pin1 = 39;
-int pin2 = 41;
-int pin3 = 43;
-int pin4 = 45;
-int pin5 = 47;
-int pin6 = 49;
-int pin7 = 51;
-int pin8 = 53;
+int Module1 = 39;
+int Module2 = 41;
+int Module3 = 43;
+int Module4 = 45;
+int Module5 = 47;
+int Module6 = 49;
+int Module7 = 51;
+int Module8 = 53;
 
-int pins[] = {pin1, pin2, pin3, pin4, pin5, pin6, pin7, pin8};
+int Modules[] = {Module1, Module2, Module3, Module4, Module5, Module6, Module7, Module8};
 
-int btn1 = 7;
-int btn2 = 2;
-int btn3 = 9;
+int NextBtn = 7;
+int SelectBtn = 2;
+int PrevBtn = 9;
 
 int HomeTop [3] = {255,248,117};
 int HomeBottom [3] = {255,89,191};
 
 int CocoLimeFizzTop [3] = {160,174,89};
 int CocoLimeFizzBottom [3] = {215,216,202};
-const uint8_t* const CocoLimeFizz [73][29] PROGMEM = {
+const uint8_t* const CocoLimeFizzImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0xC5F4,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0xFFFF,0xFFFF,0xFFFF,0x0000,0xA56B,0xA56B,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -130,7 +130,7 @@ const uint8_t* const CocoLimeFizz [73][29] PROGMEM = {
 
 int SunriseTop [3] = {254,187,7};
 int SunriseBottom [3] = {173,2,0};
-const uint8_t* const Sunrise [73][29] PROGMEM = {
+const uint8_t* const SunriseImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0x0000,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0x0000,0xFD01,0x0000,0xFFFF,0xFFFF},
@@ -208,7 +208,7 @@ const uint8_t* const Sunrise [73][29] PROGMEM = {
 
 int OrangeCoconutCoolerTop [3] = {244,226,153};
 int OrangeCoconutCoolerBottom [3] = {235,163,12};
-const uint8_t* const OrangeCoconutCooler [73][29] PROGMEM = {
+const uint8_t* const OrangeCoconutCoolerImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x9308,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x9308,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -286,7 +286,7 @@ const uint8_t* const OrangeCoconutCooler [73][29] PROGMEM = {
 
 int BlueLagoonTop [3] = {168,186,181};
 int BlueLagoonBottom [3] = {44,100,122};
-const uint8_t* const BlueLagoon [73][29] PROGMEM = {
+const uint8_t* const BlueLagoonImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0xBA87,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0xBA87,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -364,7 +364,7 @@ const uint8_t* const BlueLagoon [73][29] PROGMEM = {
 
 int OceanBreezeTop [3] = {14,116,148};
 int OceanBreezeBottom [3] = {44,100,122};
-const uint8_t* const OceanBreeze [73][29] PROGMEM = {
+const uint8_t* const OceanBreezeImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0x0000,0x0000,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0x0000,0x8B8B,0x8B8B,0x8B8B,0x8B8B,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0x0000,0x0000,0x3A2A,0xEE68,0xEE68,0xEE68,0xEE68,0xEE68,0x3A2A,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0x0000,0x0000,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -442,7 +442,7 @@ const uint8_t* const OceanBreeze [73][29] PROGMEM = {
 
 int BlueHawaiianTop [3] = {164,196,183};
 int BlueHawaiianBottom [3] = {150,132,184};
-const uint8_t* const BlueHawaiian [73][29] PROGMEM = {
+const uint8_t* const BlueHawaiianImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -520,7 +520,7 @@ const uint8_t* const BlueHawaiian [73][29] PROGMEM = {
 
 int CoconutDreamTop [3] = {229,206,166};
 int CoconutDreamBottom [3] = {188,231,79};
-const uint8_t* const CoconutDream [73][29] PROGMEM = {
+const uint8_t* const CoconutDreamImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -598,7 +598,7 @@ const uint8_t* const CoconutDream [73][29] PROGMEM = {
 
 int VirginHassTop [3] = {217,202,154};
 int VirginHassBottom [3] = {171,136,32};
-const uint8_t* const VirginHass [73][29] PROGMEM = {
+const uint8_t* const VirginHassImg [73][29] PROGMEM = {
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
   {0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF,0xFFFF},
@@ -686,6 +686,8 @@ enum Outputs
   MangoSirup
 };
 
+int Viscosity[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
 class Mocktail {
   public:
     String Name;
@@ -704,23 +706,41 @@ class Mocktail {
     }
 };
 
-Outputs Ingredients1[] = { Kokosmaelk, Limejuice, Danskvand, Grenadine };
-int Ratios1[] = { 1, 2, 3, 4 };
+Outputs CocoLimeFizzIng[] = { Kokosmaelk, Limejuice, Danskvand, Grenadine };
+int CocoLimeFizzRatio[] = { 60, 30, 90, 15 };
 
-Outputs Ingredients2[] = { Limejuice, Danskvand };
-int Ratios2[] = { 2, 3 };
+Outputs SunRiseIng[] = { Appelsinjuice, Grenadine, Danskvand };
+int SunRiseIngRatio[] = {120, 30, 60 };
 
-Outputs Ingredients3[] = { Kokosmaelk, Grenadine };
-int Ratios3[] = { 1, 4 };
+Outputs OrangeCoconutCooler[] = { Appelsinjuice, Kokosmaelk, Limejuice, Danskvand, Grenadine };
+int OrangeCoconutCoolerRatio[] = { 90, 60, 30, 60, 15 };
 
-Mocktail mocktails[3] = {
-  Mocktail("Tropical Breeze", Ingredients1, Ratios1, 4),
-  Mocktail("Citrus Fizz", Ingredients2, Ratios2, 2),
-  Mocktail("Sweet Sunset", Ingredients3, Ratios3, 2)
+Outputs BlueLagoonIng[] = { Appelsinjuice, BlaaCuracao, Grenadine };
+int BlueLagoonRatio[] = { 120, 30, 60 };
+
+Outputs OceanBreezeIng[] = { Appelsinjuice, BlaaCuracao, Limejuice, Danskvand };
+int OceanBreezeRatio[] = { 90, 30, 30, 60 };
+
+Outputs BlueHawaiianIng[] = { Kokosmaelk, Appelsinjuice, BlaaCuracao, Danskvand };
+int BlueHawaiianRatio[] = { 60, 60, 30, 60 };
+
+Outputs VirginHassIng[] = { LemonSoda, Limejuice, MangoSirup };
+int VirginHassRatio[] = { 150, 30, 30 };
+
+Outputs CocoDreamIng[] = { Kokosmaelk, MangoSirup, Limejuice, LemonSoda };
+int CocoDreamRatio[] = { 50, 30, 20, 150 };
+
+Mocktail mocktails[8] = {
+  Mocktail("Coco-Lime Fizz", CocoLimeFizzIng, CocoLimeFizzRatio, 4),
+  Mocktail("Sunrise", SunRiseIng, SunRiseIngRatio, 3),
+  Mocktail("Orange Coconut Cooler", OrangeCoconutCooler, OrangeCoconutCoolerRatio, 5),
+  Mocktail("Blue Lagoon", BlueLagoonIng, BlueLagoonRatio, 3),
+  Mocktail("Ocean Breeze", OceanBreezeIng, OceanBreezeRatio, 4),
+  Mocktail("Blue Hawaiian", BlueHawaiianIng, BlueHawaiianRatio, 4),
+  Mocktail("Virgin Hass", VirginHassIng, VirginHassRatio, 3),
+  Mocktail("Coco dream", CocoDreamIng, CocoDreamRatio, 4)
 };
 
-int flowspeed = 50;
-int cupAmount = 0;
 const int cupSize = 250;
 
 void displayMocktail(const uint8_t* const image [73][29], int offsetX = 0)
@@ -750,14 +770,14 @@ void displayBackground(int top [3], int bottom [3])
 }
 
 void setup() {
-  pinMode(pin1, OUTPUT);
-  pinMode(pin2, OUTPUT);
-  pinMode(pin3, OUTPUT);
-  pinMode(pin4, OUTPUT);
-  pinMode(pin5, OUTPUT);
-  pinMode(pin6, OUTPUT);
-  pinMode(pin7, OUTPUT);
-  pinMode(pin8, OUTPUT);
+  pinMode(Module1, OUTPUT);
+  pinMode(Module2, OUTPUT);
+  pinMode(Module3, OUTPUT);
+  pinMode(Module4, OUTPUT);
+  pinMode(Module5, OUTPUT);
+  pinMode(Module6, OUTPUT);
+  pinMode(Module7, OUTPUT);
+  pinMode(Module8, OUTPUT);
 
   mylcd.Init_LCD();
   //Serial.begin(9600);
@@ -765,12 +785,11 @@ void setup() {
   displayBackground(HomeTop,HomeBottom);
 }
 
-void pour(int index, int time)
-{
-  
-}
 
-void pourButton(int index)
+int SelectedIndex = 0;
+int CurrentModule = 0;
+
+void pour(int index)
 {
   Mocktail mocktail = mocktails[index];
 
@@ -783,25 +802,28 @@ void pourButton(int index)
     }
 
     int amount = cupSize / 100 * mocktail.Ratios[i];
+    int HoldUpWaitAMinute = amount * 10;
 
-    pour(index, round(amount / flowspeed * 100));
-  };
-}
-
-int SelectedIndex = 0;
-int CurrentModule = 0;
-
-void enableRelay(int i){
-  if (i >= 0 && i < 8) {
     digitalWrite(CurrentModule, LOW);
-    digitalWrite(pins[i], HIGH);
-    CurrentModule = pins[i];
-  }
+    digitalWrite(Modules[index], HIGH);
+    CurrentModule = Modules[index];
+    delay(HoldUpWaitAMinute);
+
+  };
+  digitalWrite(CurrentModule, LOW);
 }
 
-int LastBtn1State = LOW;
-int LastBtn2State = LOW;
-int LastBtn3State = LOW;
+// void enableRelay(int i){
+//   if (i >= 0 && i < 8) {
+//     digitalWrite(CurrentModule, LOW);
+//     digitalWrite(Modules[i], HIGH);
+//     CurrentModule = Modules[i];
+//   }
+// }
+
+int LastNextBtnState = LOW;
+int LastSelectBtnState = LOW;
+int LastPrevBtnState = LOW;
 
 bool compareBtnStates(int prev, int cur){
   return prev == LOW && cur == HIGH ? true : false;
@@ -810,18 +832,18 @@ bool compareBtnStates(int prev, int cur){
 int LastSelectedIndex = 0;
 
 void loop() {
-  int Btn1StateNow = digitalRead(btn1);
-  int Btn2StateNow = digitalRead(btn2);
-  int Btn3StateNow = digitalRead(btn3);
-  if (compareBtnStates(LastBtn1State, Btn1StateNow) && SelectedIndex < 8) SelectedIndex++;
-  else if (compareBtnStates(LastBtn3State, Btn3StateNow) && SelectedIndex > -1) SelectedIndex--;
+  int NextBtnStateNow = digitalRead(NextBtn);
+  int SelectBtnStateNow = digitalRead(SelectBtn);
+  int PrevBtnStateNow = digitalRead(PrevBtn);
+  if (compareBtnStates(LastNextBtnState, NextBtnStateNow) && SelectedIndex < 8) SelectedIndex++;
+  else if (compareBtnStates(LastPrevBtnState, PrevBtnStateNow) && SelectedIndex > -1) SelectedIndex--;
 
   if (SelectedIndex == 8) SelectedIndex = 0;
   else if (SelectedIndex == -1) SelectedIndex = 7;
 
-  if (compareBtnStates(LastBtn2State, Btn2StateNow)){
-    //pourButton(testThingDeleteLater);
-    enableRelay(SelectedIndex);
+  if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow)){
+    pour(SelectedIndex);
+    //enableRelay(SelectedIndex);
     //Serial.println(SelectIndex);
   }
 
@@ -831,40 +853,40 @@ void loop() {
     {
       case 0:
         displayBackground(CocoLimeFizzTop, CocoLimeFizzBottom);
-        displayMocktail(CocoLimeFizz, 0);
+        displayMocktail(CocoLimeFizzImg, 0);
         break;
       case 1:
         displayBackground(SunriseTop, SunriseBottom);
-        displayMocktail(Sunrise, 0);
+        displayMocktail(SunriseImg, 0);
         break;
       case 2:
         displayBackground(OrangeCoconutCoolerTop, OrangeCoconutCoolerBottom);
-        displayMocktail(OrangeCoconutCooler, 6);
+        displayMocktail(OrangeCoconutCoolerImg, 6);
         break;
       case 3:
         displayBackground(BlueLagoonTop, BlueLagoonBottom);
-        displayMocktail(BlueLagoon, 9);
+        displayMocktail(BlueLagoonImg, 9);
         break;
       case 4:
         displayBackground(OceanBreezeTop, OceanBreezeBottom);
-        displayMocktail(OceanBreeze, 0);
+        displayMocktail(OceanBreezeImg, 0);
         break;
       case 5:
         displayBackground(BlueHawaiianTop, BlueHawaiianBottom);
-        displayMocktail(BlueHawaiian, 0);
+        displayMocktail(BlueHawaiianImg, 0);
         break;
       case 6:
         displayBackground(CoconutDreamTop, CoconutDreamBottom);
-        displayMocktail(CoconutDream, 9);
+        displayMocktail(CoconutDreamImg, 9);
         break;
       case 7:
         displayBackground(VirginHassTop, VirginHassBottom);
-        displayMocktail(VirginHass, 0);
+        displayMocktail(VirginHassImg, 0);
         break;
     }
   }
   LastSelectedIndex = SelectedIndex;
-  LastBtn1State = digitalRead(btn1);
-  LastBtn2State = digitalRead(btn2);
-  LastBtn3State = digitalRead(btn3);
+  LastNextBtnState = digitalRead(NextBtn);
+  LastSelectBtnState = digitalRead(SelectBtn);
+  LastPrevBtnState = digitalRead(PrevBtn);
 }

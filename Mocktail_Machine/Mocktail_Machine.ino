@@ -779,8 +779,12 @@ void setup() {
   pinMode(Module7, OUTPUT);
   pinMode(Module8, OUTPUT);
 
+  pinMode(NextBtn, INPUT);
+  pinMode(SelectBtn, INPUT);
+  pinMode(PrevBtn, INPUT);
+
   mylcd.Init_LCD();
-  //Serial.begin(9600);
+  Serial.begin(9600);
 
   displayBackground(HomeTop,HomeBottom);
 }
@@ -844,11 +848,11 @@ void loop() {
   if (SelectedIndex == 8) SelectedIndex = 0;
   else if (SelectedIndex == -1) SelectedIndex = 7;
 
-  if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
-    pour(SelectedIndex);
-    //enableRelay(SelectedIndex);
-    //Serial.println(SelectIndex);
-  }
+   if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
+     pour(SelectedIndex);
+     //enableRelay(SelectedIndex);
+     //Serial.println(SelectIndex);
+   }
 
   if (LastSelectedIndex != SelectedIndex)
   {

@@ -795,6 +795,7 @@ void setup() {
 int SelectedIndex = 0;
 int CurrentModule = 0;
 bool IsPouring = false;
+const float FlowRate = 21,67;
 
 void pour(int index)
 {
@@ -811,8 +812,8 @@ void pour(int index)
         if (mocktail.Ingredients[i] == Outputs(j)) index = j;
       }
 
-      int amount = cupSize / 100 * mocktail.Ratios[i];
-      int HoldUpWaitAMinute = amount * 80;
+      float = (cupSize / 100) * mocktail.Ratios[i];
+      unsigned long HoldUpWaitAMinute = (amount / FlowRate) * 1000;
 
       digitalWrite(CurrentModule, LOW);
       digitalWrite(Modules[index], HIGH);
@@ -862,13 +863,7 @@ void loop() {
   if (SelectedIndex == 8) SelectedIndex = 0;
   else if (SelectedIndex == -1) SelectedIndex = 7;
 
-<<<<<<< Updated upstream
-   if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
-     pour(SelectedIndex);
-     //enableRelay(SelectedIndex);
-     //Serial.println(SelectIndex);
-   }
-=======
+
   if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
     //pour(SelectedIndex);
     pour(10);
@@ -876,7 +871,6 @@ void loop() {
     //enableRelay(SelectedIndex);
     //Serial.println(SelectIndex);
   }
->>>>>>> Stashed changes
 
   if (LastSelectedIndex != SelectedIndex)
   {

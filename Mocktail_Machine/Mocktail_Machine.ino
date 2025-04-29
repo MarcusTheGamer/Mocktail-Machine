@@ -707,28 +707,30 @@ class Mocktail {
 };
 
 Outputs CocoLimeFizzIng[] = { Kokosmaelk, Limejuice, Danskvand, Grenadine };
-int CocoLimeFizzRatio[] = { 60, 30, 90, 15 };
-
+int CocoLimeFizzRatio[] = { 31, 15, 46, 8 };
+// 60, 30, 90, 15
 Outputs SunRiseIng[] = { Appelsinjuice, Grenadine, Danskvand };
-int SunRiseIngRatio[] = {120, 30, 60 };
-
+int SunRiseIngRatio[] = {57, 15, 28 };
+// 120, 30, 60
 Outputs OrangeCoconutCooler[] = { Appelsinjuice, Kokosmaelk, Limejuice, Danskvand, Grenadine };
-int OrangeCoconutCoolerRatio[] = { 90, 60, 30, 60, 15 };
-
+int OrangeCoconutCoolerRatio[] = { 34, 24, 12, 24, 6 };
+// 90, 60, 30, 60, 15
 Outputs BlueLagoonIng[] = { Appelsinjuice, BlaaCuracao, Grenadine };
-int BlueLagoonRatio[] = { 120, 30, 60 };
-
+int BlueLagoonRatio[] = { 57, 14, 29 };
+// 120, 30, 60
 Outputs OceanBreezeIng[] = { Appelsinjuice, BlaaCuracao, Limejuice, Danskvand };
-int OceanBreezeRatio[] = { 90, 30, 30, 60 };
-
+int OceanBreezeRatio[] = { 43, 14, 14, 29 };
+// 90, 30, 30, 60
 Outputs BlueHawaiianIng[] = { Kokosmaelk, Appelsinjuice, BlaaCuracao, Danskvand };
-int BlueHawaiianRatio[] = { 60, 60, 30, 60 };
-
-Outputs VirginHassIng[] = { LemonSoda, Limejuice, MangoSirup };
-int VirginHassRatio[] = { 150, 30, 30 };
-
+int BlueHawaiianRatio[] = { 29, 29, 13, 29 };
+// 60, 60, 30, 60
+Outputs VirginHassIng[] = { Appelsinjuice, BlaaCuracao,LemonSoda,MangoSirup}; //LemonSoda, Limejuice, MangoSirup 
+int VirginHassRatio[] = { 58, 14, 14, 14};
+// 150, 30, 30
+// 72, 14, 14,
 Outputs CocoDreamIng[] = { Kokosmaelk, MangoSirup, Limejuice, LemonSoda };
-int CocoDreamRatio[] = { 50, 30, 20, 150 };
+int CocoDreamRatio[] = { 20, 12, 8, 60 };
+// 50, 30, 20, 150
 
 Mocktail mocktails[8] = {
   Mocktail("Coco-Lime Fizz", CocoLimeFizzIng, CocoLimeFizzRatio, 4),
@@ -797,27 +799,39 @@ bool IsPouring = false;
 void pour(int index)
 {
   IsPouring = true;
-  Mocktail mocktail = mocktails[index];
-
-  for (int i = 0; i < sizeof(mocktail.Ingredients) / sizeof(mocktail.Ingredients[0]); i++)
+  if (index != 10)
   {
-    int index = 0;
-    for (int j = 0; j < 8; j++)
+    Mocktail mocktail = mocktails[index];
+
+    for (int i = 0; i < sizeof(mocktail.Ingredients) / sizeof(mocktail.Ingredients[0]); i++)
     {
-      if (mocktail.Ingredients[i] == Outputs(j)) index = j;
-    }
+      int index = 0;
+      for (int j = 0; j < 8; j++)
+      {
+        if (mocktail.Ingredients[i] == Outputs(j)) index = j;
+      }
 
-    int amount = cupSize / 100 * mocktail.Ratios[i];
-    int HoldUpWaitAMinute = amount * 10;
+      int amount = cupSize / 100 * mocktail.Ratios[i];
+      int HoldUpWaitAMinute = amount * 80;
 
+      digitalWrite(CurrentModule, LOW);
+      digitalWrite(Modules[index], HIGH);
+      CurrentModule = Modules[index];
+      delay(HoldUpWaitAMinute);
+
+    };
     digitalWrite(CurrentModule, LOW);
-    digitalWrite(Modules[index], HIGH);
-    CurrentModule = Modules[index];
-    delay(HoldUpWaitAMinute);
-
-  };
-  digitalWrite(CurrentModule, LOW);
-  IsPouring = false;
+    IsPouring = false;
+  }
+  else
+  {
+    CurrentModule = Modules[5];
+    digitalWrite(CurrentModule, HIGH);
+    delay(cupSize / 100 * 100 * 40);
+    digitalWrite(CurrentModule, LOW);
+    IsPouring = false;
+    Serial.print("im cumming");
+  }
 }
 
 // void enableRelay(int i){
@@ -848,11 +862,21 @@ void loop() {
   if (SelectedIndex == 8) SelectedIndex = 0;
   else if (SelectedIndex == -1) SelectedIndex = 7;
 
+<<<<<<< Updated upstream
    if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
      pour(SelectedIndex);
      //enableRelay(SelectedIndex);
      //Serial.println(SelectIndex);
    }
+=======
+  if (compareBtnStates(LastSelectBtnState, SelectBtnStateNow && !IsPouring)){
+    //pour(SelectedIndex);
+    pour(10);
+
+    //enableRelay(SelectedIndex);
+    //Serial.println(SelectIndex);
+  }
+>>>>>>> Stashed changes
 
   if (LastSelectedIndex != SelectedIndex)
   {
@@ -883,12 +907,12 @@ void loop() {
         displayMocktail(BlueHawaiianImg, 0);
         break;
       case 6:
-        displayBackground(CoconutDreamTop, CoconutDreamBottom);
-        displayMocktail(CoconutDreamImg, 9);
-        break;
-      case 7:
         displayBackground(VirginHassTop, VirginHassBottom);
         displayMocktail(VirginHassImg, 0);
+        break;
+      case 7:
+        displayBackground(CoconutDreamTop, CoconutDreamBottom);
+        displayMocktail(CoconutDreamImg, 9);
         break;
     }
   }

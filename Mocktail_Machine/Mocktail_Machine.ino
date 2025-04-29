@@ -824,7 +824,7 @@ void displayText(const uint8_t* const text [60][120])
   {
     for (uint8_t x = 0; x < 120; x++)
     {
-      if (pgm_read_word_near(&text[y][x]) != 0xFFFF) mylcd.Fill_Rect(0 + x,120 + y,2,2,pgm_read_word_near(&text[y][x]));
+      if (pgm_read_word_near(&text[y][x]) != 0xFFFF) mylcd.Fill_Rect(0 + x * 2,120 + y * 2,2,2,pgm_read_word_near(&text[y][x]));
     }
   }
 }

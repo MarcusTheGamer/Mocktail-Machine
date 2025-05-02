@@ -1166,17 +1166,25 @@ const uint8_t* const VirginHassTxt [60][120] PROGMEM = {
 
 enum Outputs
 {
-  Kokosmaelk,
-  Limejuice,
-  Danskvand,
   Grenadine,
+  Danskvand,
+  Limejuice,
+  Kokosmaelk,
+  MangoSirup,
   Appelsinjuice,
   BlaaCuracao,
-  LemonSoda,
-  MangoSirup
+  LemonSoda
 };
 
 int Viscosity[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+
+
+
+
+
+
+
 
 class Mocktail {
   public:
@@ -1287,7 +1295,7 @@ void setup() {
   pinMode(PrevBtn, INPUT);
 
   mylcd.Init_LCD();
-  Serial.begin(9600);
+  //Serial.begin(9600);
 
   displayBackground(HomeTop,HomeBottom);
 }
@@ -1332,7 +1340,6 @@ void pour(int index)
     delay(cupSize / 100 * 100 * 40);
     digitalWrite(CurrentModule, LOW);
     IsPouring = false;
-    Serial.print("im cumming");
   }
 }
 
@@ -1385,6 +1392,7 @@ void loop() {
       case 1:
         displayBackground(SunriseTop, SunriseBottom);
         displayMocktail(SunriseImg, 0);
+        displayText(SunriseTxt);
         break;
       case 2:
         displayBackground(OrangeCoconutCoolerTop, OrangeCoconutCoolerBottom);
